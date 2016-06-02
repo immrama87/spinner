@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+		<script type="application/javascript" src="js/Spinner.js"></script>
+		<script type="application/javascript">
+			window.onload = function(){
+				var spinner = new Spinner({
+					canvasId: 	"spinner", 
+					parent: 	"body",
+					colors:		["#5B9CA5", "#B0978D", "#D87362", "#F1E479", "#B27493"],
+					text:		"Spinner Test",
+					radius:		150,
+					fontSize:	16
+				});
+				spinner.render();
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="spinner"></canvas>
+	</body>
+</html>
