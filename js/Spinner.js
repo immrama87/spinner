@@ -41,6 +41,8 @@ var Spinner = (function(opts){
 	
 	var context = canvas.getContext("2d");
 	
+	var spinnerText;
+	
 	function convertColor(color){
 		var rgb = {};
 		if(color.indexOf("#") > -1){
@@ -82,6 +84,8 @@ var Spinner = (function(opts){
 				running = false;
 				sp.render();
 			}
+			
+			spinnerText.setText(opts.text);
 		}
 	}
 	
@@ -91,7 +95,6 @@ var Spinner = (function(opts){
 				
 		addBall();
 		
-		var spinnerText;
 		if(opts.text != undefined){
 			spinnerText = new Text(context, opts.text, [canvas.width/2, canvas.height/2 + opts.radius + opts.fontSize + 10], opts.colors[0], opts.fontSize, opts.fontFamily, opts.radius);
 		}
@@ -154,6 +157,10 @@ var Spinner = (function(opts){
 		
 		t.changeDir = function(){
 			dir *= -1;
+		}
+		
+		t.setText = function(newText){
+			text = newText;
 		}
 		
 		return t;
