@@ -26,10 +26,10 @@ var Spinner = (function(opts){
 	opts.radius = opts.radius || 75;
 	opts.fontSize = opts.fontSize || 16;
 	opts.fontFamily = opts.fontFamily || "Arial";
-	
-	
+		
 	var canvas = document.getElementById(opts.canvasId);
 	var parent = $(canvas).parents().find(opts.parent);
+	
 	canvas.width = $(parent).width();
 	canvas.height = $(parent).height();
 	
