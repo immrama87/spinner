@@ -54,6 +54,37 @@ var Spinner = (function(opts){
 		return rgb;
 	}
 	
+	sp.setOptions = function(options){
+		var allowed = ["colors", "text", "radius", "fontSize", "fontFamily"];
+		var restart = ["colors", "radius", "fontSize"];
+		
+		var restartRequired = false;
+		var proceed = true;
+		for(var i=0;i<restart.length;i++){
+			if(options.hasOwnProperty(restart[i]) && options[restart[i]] != opts[restart[i]]){
+				restartRequired = true;
+				proceed = false;
+			}
+		}
+		
+		if(restartRequired){
+			proceed = confirm("The spinner will need to be restarted to make the update requested. Proceed?");
+			
+		}
+		
+		if(proceed){
+			for(var i=0;i<allowed.length;i++){
+				if(options.hasOwnProperty(allowed[i])){
+					opts[allowed[i]] = options[allowed[i]];
+				}
+			}
+			if(restartRequired){
+				running = false;
+				sp.render();
+			}
+		}
+	}
+	
 	sp.render = function(){
 		running = true;
 		var balls = [];
